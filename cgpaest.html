@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4dcfb46ad8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="LogoMakerCa-1688514373726.png" class="logo" alt="" width="128px" height="72px"></a>
+        <div>
+            <ul id = "navbar">
+                <li><a href="index.html">Calculate GPA</a></li>
+                <li><a class = "active" href="cgpaest.html">Estimate CGPA</a></li>
+                <li><a href="gpaest.html">Estimate GPA</a></li>
+            </ul>
+        </div>
+    </section>
+        <style>
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#courseTable {
+  width: 100%;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+}
+
+#courseTable th,
+#courseTable td {
+  padding: 10px;
+  text-align: center;
+}
+
+#courseTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.button-group button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.button-group button:hover {
+  background-color: #005b82;
+}
+
+#addCourse {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+#interchangeColumnsButton {
+  flex-grow: 1;
+  margin-left: 10px;
+}
+
+#submitBtn {
+  display: block;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#submitBtn:hover {
+  background-color: #39803a;
+}
+
+#btn3{
+    display: block;
+  margin-top: 20px;
+  width: 30%;
+  background-color: #6853c9;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#btn3:hover{
+    background-color: #333333;
+}
+
+
+
+#btncont{
+    display: flex;
+    flex-direction: row;
+}
+
+#gpacal{
+    display: flex;
+    flex-direction: column;
+}
+
+#addCourse{
+    display: block;
+  margin-top: 20px;
+  width: 40%;
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+
+}
+
+#addCourse:hover{
+    background-color: #333333;
+}
+
+#interchangeColumnsButton{
+    display: block;
+  margin-top: 20px;
+  width: 40%;
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#interchangeColumnsButton:hover{
+    background-color: #333333;
+}
+
+
+
+#printButton {
+  display: block;
+  margin-top: 20px;
+  width: 30%;
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#printButton:hover {
+  background-color: #333333;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #008CBA;
+  box-shadow: 0 0 5px rgba(0, 140, 186, 0.5);
+}
+
+input[type="submit"],
+button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #005b82;
+}
+
+#result2 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#printButton2 {
+  display: block;
+  margin-top: 20px;
+  width: 30%;
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#printButton2:hover {
+  background-color: #333333;
+}
+
+#btndiv3{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#prtdiv{
+    display: flex;
+    justify-content:center;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 10px;
+  }
+
+  #courseTable {
+    font-size: 14px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  #addCourse,
+  #interchangeColumnsButton,
+  #btn3,
+  #printButton,
+  #printButton2 {
+    width: 100%;
+    max-width: none;
+  }
+}
+          </style>
+
+          <section id="gpacal">
+          <form id="cgpaestForm">
+
+            <div><table id="courseTable">
+            
+                <tr>
+                    <td>Previous CGPA:</td>
+                    <td><input type="number" step="0.01" name="additionalInput1" required></td>
+                  </tr>
+                  <tr>
+                    <td>Total Credits:</td>
+                    <td><input type="number" name="additionalInput2" required></td>
+                  </tr>
+              <tr>
+                <td><b>Credits</b></td>
+                <td><b>Grades</b></td>
+              </tr>
+              <tr>
+                <td>
+                    <input type="number" name="credit1" required value="3">
+                  </td>
+                <td>
+                  <select name="grade1" required>
+                    <option value="">Select Grade</option>
+                    <option value="10">A</option>
+                    <option value="8" selected>B</option>
+                    <option value="6">C</option>
+                    <option value="4">D</option>
+                    <option value="2">E</option>
+                    <option value="0">NC</option>
+                  </select>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>
+                    <input type="number" name="credit2" required value="3">
+                  </td>
+                <td>
+                  <select name="grade2" required>
+                    <option value="">Select Grade</option>
+                    <option value="10">A</option>
+                    <option value="8" selected>B</option>
+                    <option value="6">C</option>
+                    <option value="4">D</option>
+                    <option value="2">E</option>
+                    <option value="0">NC</option>
+                  </select>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>
+                    <input type="number" name="credit3" required value="3">
+                  </td>
+                <td>
+                  <select name="grade3" required>
+                    <option value="">Select Grade</option>
+                    <option value="10">A</option>
+                    <option value="8" selected>B</option>
+                    <option value="6">C</option>
+                    <option value="4">D</option>
+                    <option value="2">E</option>
+                    <option value="0">NC</option>
+                  </select>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>
+                    <input type="number" name="credit4" required value="3">
+                  </td>
+                <td>
+                  <select name="grade4" required>
+                    <option value="">Select Grade</option>
+                    <option value="10">A</option>
+                    <option value="8" selected>B</option>
+                    <option value="6">C</option>
+                    <option value="4">D</option>
+                    <option value="2">E</option>
+                    <option value="0">NC</option>
+                  </select>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>
+                    <input type="number" name="credit5" required value="3">
+                  </td>
+                <td>
+                  <select name="grade5" required>
+                    <option value="">Select Grade</option>
+                    <option value="10">A</option>
+                    <option value="8" selected>B</option>
+                    <option value="6">C</option>
+                    <option value="4">D</option>
+                    <option value="2">E</option>
+                    <option value="0">NC</option>
+                  </select>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>
+                    <input type="number" name="credit6" required value="3">
+                  </td>
+                <td>
+                  <select name="grade6" required>
+                    <option value="">Select Grade</option>
+                    <option value="10">A</option>
+                    <option value="8" selected>B</option>
+                    <option value="6">C</option>
+                    <option value="4">D</option>
+                    <option value="2">E</option>
+                    <option value="0">NC</option>
+                  </select>
+                </td>
+                
+              </tr>
+              <tr>
+                <td>
+                    <input type="number" name="credit7" required value="3">
+                  </td>
+                <td>
+                  <select name="grade7" required>
+                    <option value="">Select Grade</option>
+                    <option value="10">A</option>
+                    <option value="8" selected>B</option>
+                    <option value="6">C</option>
+                    <option value="4">D</option>
+                    <option value="2">E</option>
+                    <option value="0">NC</option>
+                  </select>
+                </td>
+                
+              </tr>
+            </table>
+            </div>
+            
+            <div id="side"><div id="btncont"><button type="button" id="addCourse">Add Another Course</button>
+    <button type="button" id="interchangeColumnsButton">Interchange Columns</button></div>
+
+            
+           <div id="btndiv3"><input type="submit" id="btn3" value="Estimate CGPA"></div>
+          </form>
+          
+          <div id="result"></div>
+        
+          <div id="prtdiv"><button type="button" id="printButton">Print</button></div>
+        </div>
+
+    </section>
+
+    <section id="metd2">
+
+            <form id="cgpaest1Form">
+
+                <div><table id="courseTable">
+                
+                    <tr>
+                        <td>Previous CGPA:</td>
+                        <td><input type="number" step="0.01" name="prevcgpa" required></td>
+                      </tr>
+                      <tr>
+                        <td>Total Credits:</td>
+                        <td><input type="number" name="prevcrd" required></td>
+                      </tr>
+                      <tr>
+                        <td>Estimated GPA:</td>
+                        <td><input type="number" step="0.01" name="estgpa" required></td>
+                      </tr>
+                      <tr>
+                        <td>Estimated Credits:</td>
+                        <td><input type="number" name="estcrd" required></td>
+                      </tr>
+                      </table></div>
+            <div id="btndiv3"><input type="submit" id="btn3" value="Estimate CGPA"></div>
+            </form>
+            <div id="result2"></div>
+        
+            <div id="prtdiv"><button type="button" id="printButton2">Print</button></div>
+            </section>
+
+            <section id="footerid">
+                <div id="cont1">
+                  <a href="123"><h6>Quick links -></h6></a>
+                  <a href="1234"><h6>dfwvw</h6></a>
+                  <a href="12345"><h6>dfwvw</h6></a>
+                </div>
+                <div id="cont2">
+                    <div id="bio">
+                    <div id="myphoto">
+                        <img src="20230706_162608.jpg" width="50px" height="50px">
+                    </div>
+                    <div id="contribution">
+                        <h6>Created by,</h6>
+                        <h5>Sai Yaswanth</h5>
+                    </div>
+                    </div>
+                <div id="mail">
+                    <h6>Feedback:</h6>
+                    <a href="mailto:p.yashwant21@ifheindia.org"><h5>p.yashwant21@ifheindia.org</h5></a></div>
+            <div><a href="https://www.instagram.com/sai_yaswanth_07" target="_blank"><i id="insta" class="fa-brands fa-instagram fa-xl" style="color: #ffffff; padding: 30px;"></i></a></div>
+            <div><a href="https://www.linkedin.com/in/pinipe-sai-yaswanth-121429239" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl" style="color: #ffffff; padding: 30px;"></i></a></div>
+                    </div>
+        </section>
+
+
+ 
+        
+        
+          <script>
+            var courseCount = 1;
+            var defaultGrade = "8"; // Default grade value
+            var defaultCredit = "3"; // Default credit value
+          
+            document.getElementById("addCourse").addEventListener("click", function() {
+  courseCount++;
+
+  var courseTable = document.getElementById("courseTable");
+
+  var newRow = document.createElement("tr");
+
+  var creditCell = document.createElement("td");
+  var creditInput = document.createElement("input");
+  creditInput.setAttribute("type", "number");
+  creditInput.setAttribute("name", "credit" + courseCount);
+  creditInput.required = true;
+  creditInput.value = defaultCredit; // Set default credit value
+  creditCell.appendChild(creditInput);
+  newRow.appendChild(creditCell);
+
+  var gradeCell = document.createElement("td");
+  var gradeSelect = document.createElement("select");
+  gradeSelect.setAttribute("name", "grade" + courseCount);
+  gradeSelect.required = true;
+  var gradeOptions = ["", "10", "8", "6", "4", "0"];
+  var gradeLabels = ["Select Grade", "A", "B", "C", "D", "F"];
+  for (var i = 0; i < gradeOptions.length; i++) {
+    var option = document.createElement("option");
+    option.value = gradeOptions[i];
+    option.textContent = gradeLabels[i];
+    gradeSelect.appendChild(option);
+  }
+  gradeSelect.value = defaultGrade; // Set default grade value
+  gradeCell.appendChild(gradeSelect);
+  newRow.appendChild(gradeCell);
+
+  courseTable.appendChild(newRow);
+
+  // Update default values for the next row
+  defaultGrade = gradeSelect.value;
+  defaultCredit = creditInput.value;
+});
+
+          
+            document.getElementById("cgpaestForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get input values
+  var gradeInputs = document.querySelectorAll('select[name^="grade"]');
+  var grades = Array.from(gradeInputs).map(input => input.value);
+
+  var creditInputs = document.querySelectorAll('input[name^="credit"]');
+  var credits = Array.from(creditInputs).map(input => parseFloat(input.value));
+
+  var sumOfProducts = calculateSumOfProducts(gradeInputs, creditInputs);
+  var sumOfCredits = calculateSumOfCredits(creditInputs);
+
+  var additionalInput1Value = parseFloat(document.querySelector('input[name="additionalInput1"]').value);
+  var additionalInput2Value = parseFloat(document.querySelector('input[name="additionalInput2"]').value);
+
+  var results = calculateResult(sumOfProducts, sumOfCredits, additionalInput1Value, additionalInput2Value);
+  var gpa = results.gpa;
+  var newCGPA = results.newCGPA;
+
+  // Display result
+  var resultDiv = document.getElementById("result");
+  resultDiv.innerHTML = "GPA: " + gpa.toFixed(2) + "<br>New CGPA: " + newCGPA.toFixed(2);
+
+
+});
+
+          
+// Recursive function to calculate total grade points
+function calculateTotalGradePoints(grades, credits, index = 0) {
+      if (index === grades.length) {
+        return 0;
+      }
+      
+      var grade = grades[index];
+      var credit = credits[index];
+      var gradePoints = calculateGradePoints(grade);
+      var gradePointsForCourse = gradePoints * credit;
+      
+      return gradePointsForCourse + calculateTotalGradePoints(grades, credits, index + 1);
+    }
+    
+    // Helper function to calculate grade points based on grade
+    function calculateGradePoints(grade) {
+      return parseFloat(grade);
+    }
+          
+            function calculateSumOfProducts(gradeInputs, creditInputs) {
+              var sum = 0;
+              for (var i = 0; i < gradeInputs.length; i++) {
+                var grade = parseFloat(gradeInputs[i].value);
+                var credit = parseFloat(creditInputs[i].value);
+                var product = grade * credit;
+                sum += product;
+              }
+              return sum;
+            }
+          
+            function calculateSumOfCredits(creditInputs) {
+              var sum = 0;
+              for (var i = 0; i < creditInputs.length; i++) {
+                var credit = parseFloat(creditInputs[i].value);
+                sum += credit;
+              }
+              return sum;
+            }
+          
+            function calculateResult(sumOfProducts, sumOfCredits, additionalInput1Value, additionalInput2Value) {
+              var newCGPA = ((additionalInput1Value * additionalInput2Value) + sumOfProducts) / (sumOfCredits + additionalInput2Value);
+              var gpa = sumOfProducts / sumOfCredits;
+              return { gpa: gpa, newCGPA: newCGPA };
+            }
+          
+            document.getElementById("interchangeColumnsButton").addEventListener("click", function() {
+              var courseTable = document.getElementById("courseTable");
+          
+              // Swap the position of the first two columns
+              var rows = courseTable.getElementsByTagName("tr");
+              for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName("td");
+                if (cells.length >= 2) {
+                  var firstCell = cells[0];
+                  var secondCell = cells[1];
+          
+                  // Swap the HTML content of the cells
+                  var temp = firstCell.innerHTML;
+                  firstCell.innerHTML = secondCell.innerHTML;
+                  secondCell.innerHTML = temp;
+                }
+              }
+            });
+
+            document.getElementById("printButton").addEventListener("click", function() {
+  // Hide the print button
+  document.getElementById("printButton").style.display = "none";
+  
+  // Show the result container (if hidden)
+  document.getElementById("result").style.display = "block";
+  
+  // Set the styles for printing
+  document.body.style.backgroundColor = "#fff";
+  document.body.style.margin = "0";
+  document.body.style.padding = "20px";
+  
+  // Trigger the print dialog
+  window.print();
+  
+  // Restore the original styles after printing
+  document.body.style.backgroundColor = "";
+  document.body.style.margin = "";
+  document.body.style.padding = "";
+  
+  // Show the print button again
+  document.getElementById("printButton").style.display = "block";
+});
+
+
+
+document.getElementById("cgpaest1Form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get input values
+  var prevCGPA = parseFloat(document.querySelector('input[name="prevcgpa"]').value);
+  var prevCredits = parseInt(document.querySelector('input[name="prevcrd"]').value);
+  var estGPA = parseFloat(document.querySelector('input[name="estgpa"]').value);
+  var estCredits = parseInt(document.querySelector('input[name="estcrd"]').value);
+
+  // Calculate the result
+  var newCGPA = ((prevCGPA * prevCredits) + (estGPA * estCredits)) / (prevCredits + estCredits);
+
+  // Display result
+  var resultDiv = document.getElementById("result2");
+  resultDiv.innerHTML = "Estimated CGPA: " + newCGPA.toFixed(2);
+});
+
+document.getElementById("printButton2").addEventListener("click", function() {
+  // Hide the print button
+  document.getElementById("printButton2").style.display = "none";
+  
+  // Show the result container (if hidden)
+  document.getElementById("result2").style.display = "block";
+  
+  // Set the styles for printing
+  document.body.style.backgroundColor = "#fff";
+  document.body.style.margin = "0";
+  document.body.style.padding = "20px";
+  
+  // Trigger the print dialog
+  window.print();
+  
+  // Restore the original styles after printing
+  document.body.style.backgroundColor = "";
+  document.body.style.margin = "";
+  document.body.style.padding = "";
+  
+  // Show the print button again
+  document.getElementById("printButton2").style.display = "block";
+});
+
+          </script>
+    
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/4dcfb46ad8.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#result {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#courseTable {
+  width: 100%;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+}
+
+#courseTable th,
+#courseTable td {
+  padding: 10px;
+  text-align: center;
+}
+
+#courseTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+#printButton2 {
+  display: block;
+  margin-top: 20px;
+  width: 30%;
+  background-color: #555555;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#printButton2:hover {
+  background-color: #333333;
+}
+
+#btn3{
+    display: block;
+  margin-top: 20px;
+  width: 30%;
+  background-color: #6853c9;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#btn3:hover{
+    background-color: #333333;
+}
+
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #008CBA;
+  box-shadow: 0 0 5px rgba(0, 140, 186, 0.5);
+}
+
+input[type="submit"],
+button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #005b82;
+}
+
+#result2 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#btndiv3{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#prtdiv{
+    display: flex;
+    justify-content:center;
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding: 10px;
+  }
+  #btn3,#printButton2 {
+    width: 100%;
+    max-width: none;
+  }
+}
+    </style>
+    <section id="header">
+        <a href="#"><img src="LogoMakerCa-1688514373726.png" class="logo" alt="" width="128px" height="72px"></a>
+        <div>
+            <ul id = "navbar">
+                <li><a href="index.html">Calculate GPA</a></li>
+                <li><a href="cgpaest.html">Estimate CGPA</a></li>
+                <li><a class = "active" href="gpaest.html">Estimate GPA</a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="gpaest">
+            <form id="gpaestForm">
+
+                <div><table id="courseTable">
+                
+                    <tr>
+                        <td>Previous CGPA:</td>
+                        <td><input type="number" step="0.01" name="prevcgpa" required></td>
+                      </tr>
+                      <tr>
+                        <td>Total Credits:</td>
+                        <td><input type="number" name="prevcrd" required></td>
+                      </tr>
+                      <tr>
+                        <td>Target CGPA:</td>
+                        <td><input type="number" step="0.01" name="trgtcgpa" required></td>
+                      </tr>
+                      <tr>
+                        <td>Estimated Credits:</td>
+                        <td><input type="number" name="estcrd" required></td>
+                      </tr>
+                      </table></div>
+            <div id="btndiv3"><input type="submit" id="btn3" value="Estimate GPA"></div>
+            </form>
+            <div id="result2"></div>
+        
+            <div id="prtdiv"><button type="button" id="printButton2">Print</button></div>
+    </section>
+
+    <section id="footerid">
+        <div id="cont1">
+          <a href="123"><h6>Quick links -></h6></a>
+          <a href="1234"><h6>dfwvw</h6></a>
+          <a href="12345"><h6>dfwvw</h6></a>
+        </div>
+        <div id="cont2">
+            <div id="bio">
+            <div id="myphoto">
+                <img src="20230706_162608.jpg" width="50px" height="50px">
+            </div>
+            <div id="contribution">
+                <h6>Created by,</h6>
+                <h5>Sai Yaswanth</h5>
+            </div>
+            </div>
+        <div id="mail">
+            <h6>Feedback:</h6>
+            <a href="mailto:p.yashwant21@ifheindia.org"><h5>p.yashwant21@ifheindia.org</h5></a></div>
+            <div><a href="https://www.instagram.com/sai_yaswanth_07" target="_blank"><i id="insta" class="fa-brands fa-instagram fa-xl" style="color: #ffffff; padding: 30px;"></i></a></div>
+            <div><a href="https://www.linkedin.com/in/pinipe-sai-yaswanth-121429239" target="_blank"><i class="fa-brands fa-linkedin-in fa-xl" style="color: #ffffff; padding: 30px;"></i></a></div>
+            </div>
+</section>
+
+    <script>
+        document.getElementById("gpaestForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get input values
+  var prevCGPA = parseFloat(document.querySelector('input[name="prevcgpa"]').value);
+  var prevCredits = parseInt(document.querySelector('input[name="prevcrd"]').value);
+  var targetCGPA = parseFloat(document.querySelector('input[name="trgtcgpa"]').value);
+  var estCredits = parseInt(document.querySelector('input[name="estcrd"]').value);
+
+  // Calculate the result
+  var newGPA = (targetCGPA * (prevCredits + estCredits) - (prevCGPA * prevCredits)) / estCredits;
+
+  // Display result
+  if(newGPA<=10){
+  var resultDiv = document.getElementById("result2");
+  resultDiv.innerHTML = "Required GPA: " + newGPA.toFixed(2);}
+  else{
+    var resultDiv = document.getElementById("result2");
+  resultDiv.innerHTML = "Your required GPA is exceeding the maximum limit of 10. Try reducing the Target CGPA";
+  }
+});
+
+document.getElementById("printButton2").addEventListener("click", function() {
+  // Hide the print button
+  document.getElementById("printButton2").style.display = "none";
+  
+  // Show the result container (if hidden)
+  document.getElementById("result2").style.display = "block";
+  
+  // Set the styles for printing
+  document.body.style.backgroundColor = "#fff";
+  document.body.style.margin = "0";
+  document.body.style.padding = "20px";
+  
+  // Trigger the print dialog
+  window.print();
+  
+  // Restore the original styles after printing
+  document.body.style.backgroundColor = "";
+  document.body.style.margin = "";
+  document.body.style.padding = "";
+  
+  // Show the print button again
+  document.getElementById("printButton2").style.display = "block";
+});
+
+    </script>
+</body>
+</html>
