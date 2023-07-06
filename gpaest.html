@@ -6,6 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/4dcfb46ad8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -19,6 +22,11 @@ body {
 
 h1 {
   text-align: center;
+}
+
+b{
+    font-family: 'Source Code Pro', monospace;
+    
 }
 
 #dropdownArea {
@@ -208,8 +216,8 @@ button:hover {
             </ul>
         </div>
     </section>
-    <section id="intro" class="hidden">
-        <p onclick="toggleDropdown()">Click here for page info.</p>
+    <section onclick="toggleDropdown()" id="intro" class="hidden">
+        <p onclick="toggleDropdown()">Page info.</p>
         <span id="dropdownArea" class="hidden"><h6>Alright, we get it. You said it's the last time, but we know you can't resist our amazing tools. Alright then,<br><br>
         This tool will help you determine the GPA you need to score in your current semester in order to reach a specific CGPA goal. It takes into account your previous CGPA, the total number of credits upto that semester, the desired CGPA you wish to achieve and the credits in the current semester.<br><br>
         If you want to calculate only the current semester GPA, you can click <a href="index.html">here</a>.<br><br>
@@ -218,7 +226,7 @@ button:hover {
         I suggest you go through the <a href="">guide</a> for a better understanding of this tool.</h6></span>
     </section>
     
-    <section id="intro" class="hidden2">
+    <section onclick="toggleDropdown2()" id="intro" class="hidden2">
         <p onclick="toggleDropdown2()">Need Help?</p>
         <span id="dropdownArea2" class="hidden2"><h6>This tool will help you determine the GPA you need to score in your current semester in order to reach a specific CGPA goal. It takes into account your previous CGPA, the total number of credits upto that semester, the desired CGPA you wish to achieve and the credits in the current semester.<br><br>
             <b>Inputs:</b><br><br>

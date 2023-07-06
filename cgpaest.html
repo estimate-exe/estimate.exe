@@ -30,6 +30,11 @@
   background-color: #f2f2f2;
 }
 
+b{
+    font-family: 'Source Code Pro', monospace;
+    
+}
+
 h1 {
   text-align: center;
 }
@@ -356,8 +361,8 @@ button:hover {
 }
           </style>
 
-<section id="intro" class="hidden">
-    <p onclick="toggleDropdown()">Click here for page info.</p>
+<section onclick="toggleDropdown()" id="intro" class="hidden">
+    <p onclick="toggleDropdown()">Page info.</p>
     <span id="dropdownArea" class="hidden"><h6>You again? Just kidding, great to see you back!<br><br>
     On this page, you'll discover a CGPA calculator that allows you to determine your CGPA by entering your earned grades and corresponding credits of the current semester along with the Previous CGPA and Previous Total Credits. <br><br>
     And further down the page you'll discover another CGPA estimator which will estimate the Overall CGPA by entering the current semester expected GPA and credits along with the Previous CGPA and Previous Total Credits.<br><br>
@@ -367,7 +372,7 @@ button:hover {
     I suggest you go through the <a href="">guide</a> for a better understanding of this tool.</h6></span>
 </section>
 
-<section id="intro" class="hidden2">
+<section onclick="toggleDropdown2()" id="intro" class="hidden2">
     <p onclick="toggleDropdown2()">Need Help?</p>
     <span id="dropdownArea2" class="hidden2"><h6><b>Inputs:</b><br><br>
         <b>Semester:</b> It is the number of the semester for your reference which is completely optional.<br>
@@ -550,7 +555,7 @@ button:hover {
     </section>
 
 
-    <section id="intro" class="hidden3">
+    <section onclick="toggleDropdown3()" id="intro" class="hidden3">
         <p onclick="toggleDropdown3()">Need Help?</p>
         <span id="dropdownArea3" class="hidden3"><h6>Ugh! This is the last right?? Anyway,<br><br>
             This tool will help you estimate the CGPA of the next semester by entering the current semester expected GPA and credits along with the Previous CGPA and Previous Total Credits.<br><br>
