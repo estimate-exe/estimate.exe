@@ -6,24 +6,59 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/4dcfb46ad8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro&display=swap" rel="stylesheet">
 
 </head>
 <body>
     <section id="header">
         <a href="#"><img src="LogoMakerCa-1688514373726.png" class="logo" alt="" width="128px" height="72px"></a>
         <div>
-            <ul id = "navbar">
-                <li><a class = "active" href="index.html">Calculate GPA</a></li>
+            <ul id="navbar">
+                <li><a class="active" href="index.html">Calculate GPA</a></li>
                 <li><a href="cgpaest.html">Estimate CGPA</a></li>
                 <li><a href="gpaest.html">Estimate GPA</a></li>
             </ul>
         </div>
     </section>
+    
+ 
+    
+    <section id="intro" class="hidden">
+        <p onclick="toggleDropdown()">Click here for page info.</p>
+        <span id="dropdownArea" class="hidden"><h6>Hey there,<br><br>
+        On this page, you'll discover a user-friendly GPA calculator that allows you to determine your GPA by entering your earned grades and corresponding credits. <br><br>Simply input the credit hours for each course and the grades you received, and the calculator will instantly compute your resulting GPA.<br><br>
+        If you want to calculate your CGPA (Cumulative Grade Point Average), you can click <a href="cgpaest.html">here</a>.<br><br>
+        If you wish to calculate the required GPA to achieve a targeted CGPA (Cumulative Grade Point Average), you can click <a href="gpaest.html">here</a>.<br><br>
+        Feel free to use the help button provided if you need any assistance.<br><br>
+        I suggest you to go through the <a href="">guide</a> for a better understanding of this tool.</h6></span>
+    </section>
+
+    <section id="intro" class="hidden2">
+        <p onclick="toggleDropdown2()">Need Help?</p>
+        <span id="dropdownArea2" class="hidden2"><h6><b>Inputs:</b><br><br>
+            <b>Semester:</b> It is the number of the semester for your reference which is completely optional.<br>
+            <b>Credits:</b> These are the credit weights of each course/subject.<br>
+            <b>Grades:</b> These are the grades obtained for each course/subject.<br><br>
+            Click on the 'Add another course' button to add a course.<br><br>
+            Click on 'Calculate GPA' to calculate the result (GPA).<br><br>
+            <b>Output:</b><br><br>
+            You will get the resultant GPA of the current semester.<br><br>
+            Feel free to refer the <a href="">guide</a> for a better understanding.<br><br>
+            <a href="cgpaest.html">Calculate CGPA</a><br><br>
+            <a href="gpaest.html">Estimate GPA</a>
+        </h6></span>
+    </section>
+    
       
       
 
   <style>
     /* Global Styles */
+
+
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -35,6 +70,52 @@ h1 {
   text-align: center;
 }
 
+
+#dropdownArea {
+  display: none;
+}
+
+#dropdownArea.open {
+  display: block;
+}
+
+#dropdownArea2 {
+  display: none;
+}
+
+#dropdownArea2.open {
+  display: block;
+}
+
+
+
+#intro{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#intro h6{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+#intro p{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+#gpacal{
+    padding-top: 20px;
+}
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -420,6 +501,17 @@ width: 100%;
 
 
   <script>
+
+function toggleDropdown() {
+  var dropdown = document.getElementById('dropdownArea');
+  dropdown.classList.toggle('open');
+}
+
+function toggleDropdown2() {
+  var dropdown = document.getElementById('dropdownArea2');
+  dropdown.classList.toggle('open');
+}
+
     
 
 var courseCount = 1;
@@ -556,8 +648,8 @@ document.getElementById("interchangeColumnsButton").addEventListener("click", fu
 <section id="footerid">
         <div id="cont1">
           <a href="123"><h6>Quick links -></h6></a>
-          <a href="1234"><h6>dfwvw</h6></a>
-          <a href="12345"><h6>dfwvw</h6></a>
+          <a href="1234"><h6>Guide</h6></a>
+          <a href="12345"><h6>Math behind it</h6></a>
         </div>
         <div id="cont2">
             <div id="bio">

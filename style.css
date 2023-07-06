@@ -124,11 +124,21 @@ p{
     #navbar {
       flex-direction: column;
       align-items: flex-start;
+      padding: 5px;
     }
   
     #navbar li {
-      padding: 10px 20px;
+      padding: 8px 13px;
     }
+
+    #navbar li a.active::after{
+        width: 40%;
+        height: 2px;
+        background:#880808;
+        position: absolute;
+        bottom: -1px;
+        left: 15px;
+}
   
     .dropdown {
       position: static;
@@ -148,6 +158,13 @@ p{
       .dropdown-content .dropdown-item a {
         font-size: 16px;
       }
+
+      #navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+
+
+}
     }
 
 #footerid{
@@ -233,8 +250,13 @@ border-radius: 50%;
 
 @media screen and (max-width: 767px) {
     #cont1 {
-      flex-direction: column;
+      flex-direction: row;
       align-items: flex-start;
+    }
+
+    #cont1 h6{
+        padding: 10px;
+        font-size: 15px;
     }
     
     #cont2 {
@@ -243,7 +265,7 @@ border-radius: 50%;
     }
   
     #bio {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
     }
 

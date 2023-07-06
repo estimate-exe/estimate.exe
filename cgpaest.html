@@ -6,6 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/4dcfb46ad8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -30,6 +33,59 @@
 h1 {
   text-align: center;
 }
+
+#dropdownArea {
+  display: none;
+}
+
+#dropdownArea.open {
+  display: block;
+}
+
+#dropdownArea2 {
+  display: none;
+}
+
+#dropdownArea2.open {
+  display: block;
+}
+
+#dropdownArea3 {
+  display: none;
+}
+
+#dropdownArea3.open {
+  display: block;
+}
+
+
+
+#intro{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#intro h6{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+#intro p{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+#gpacal{
+    padding-top: 20px;}
 
 .container {
   max-width: 600px;
@@ -234,6 +290,10 @@ button:hover {
   background-color: #005b82;
 }
 
+#metd2{
+    padding-top: 20px;
+}
+
 #result2 {
   margin-top: 20px;
   text-align: center;
@@ -296,19 +356,51 @@ button:hover {
 }
           </style>
 
+<section id="intro" class="hidden">
+    <p onclick="toggleDropdown()">Click here for page info.</p>
+    <span id="dropdownArea" class="hidden"><h6>You again? Just kidding, great to see you back!<br><br>
+    On this page, you'll discover a CGPA calculator that allows you to determine your CGPA by entering your earned grades and corresponding credits of the current semester along with the Previous CGPA and Previous Total Credits. <br><br>
+    And further down the page you'll discover another CGPA estimator which will estimate the Overall CGPA by entering the current semester expected GPA and credits along with the Previous CGPA and Previous Total Credits.<br><br>
+    If you want to calculate only the current semester GPA, you can click <a href="index.html">here</a>.<br><br>
+    If you wish to calculate the required GPA to achieve a targeted CGPA, you can click <a href="gpaest.html">here</a>.<br><br>
+    Feel free to use the help button provided if you need any assistance.<br><br>
+    I suggest you go through the <a href="">guide</a> for a better understanding of this tool.</h6></span>
+</section>
+
+<section id="intro" class="hidden2">
+    <p onclick="toggleDropdown2()">Need Help?</p>
+    <span id="dropdownArea2" class="hidden2"><h6><b>Inputs:</b><br><br>
+        <b>Semester:</b> It is the number of the semester for your reference which is completely optional.<br>
+        <b>Credits:</b> These are the credit weights of each course/subject for the current semester.<br>
+        <b>Grades:</b> These are the grades obtained for each course/subject for the current semester.<br><br>
+        <b>Previous CGPA:</b> It is the CGPA you scored upto the previous semester (before this semester).<br>
+        <b>Total Credits:</b> It is the total number of credits before the current semester (upto the previous semester). DO NOT inculde the credits of the current semester.<br><br>
+        Click on the 'Interchange Columns' button to swap the positions of the columns.<br><br>
+        Click on the 'Add another course' button to add a course.<br><br>
+        Click on 'Calculate CGPA' to calculate the result (CGPA).<br><br>
+        <b>Output:</b><br><br>
+        You will get the resultant GPA of the current semester.<br>
+        CGPA upto the current semester.<br>
+        And Total Credits upto the current semester.<br><br>
+        <b>Tip:</b> If you want to estimate the CGPA of the next semester you can repeat this whole process but with inputs as,<br>
+        Estimated or expected grades and credits of the next semester.<br>
+        Previous CGPA: The CGPA you calculated before.<br>
+        Total Credits: Total credits which has been displayed in the previous result.<br><br>
+        Feel free to refer the <a href="">guide</a> for a better understanding.<br><br>
+        <a href="index.html">Calculate GPA</a><br><br>
+        <a href="gpaest.html">Estimate GPA</a>
+    </h6></span>
+</section>
+
           <section id="gpacal">
           <form id="cgpaestForm">
 
             <div><table id="courseTable">
-            
                 <tr>
-                    <td>Previous CGPA:</td>
-                    <td><input type="number" step="0.01" name="additionalInput1" required></td>
-                  </tr>
-                  <tr>
-                    <td>Total Credits:</td>
-                    <td><input type="number" name="additionalInput2" required></td>
-                  </tr>
+                <td>Semester:</td>
+                <td><input type="number" step="0.1" name="extra"></td>
+              </tr>
+                
               <tr>
                 <td><b>Credits</b></td>
                 <td><b>Grades</b></td>
@@ -432,6 +524,14 @@ button:hover {
                 </td>
                 
               </tr>
+              <tr>
+                <td>Previous CGPA:</td>
+                <td><input type="number" step="0.01" name="additionalInput1" required></td>
+              </tr>
+              <tr>
+                <td>Total Credits(Upto Previous CGPA):</td>
+                <td><input type="number" name="additionalInput2" required></td>
+              </tr>
             </table>
             </div>
             
@@ -439,7 +539,7 @@ button:hover {
     <button type="button" id="interchangeColumnsButton">Interchange Columns</button></div>
 
             
-           <div id="btndiv3"><input type="submit" id="btn3" value="Estimate CGPA"></div>
+           <div id="btndiv3"><input type="submit" id="btn3" value="Calculate CGPA"></div>
           </form>
           
           <div id="result"></div>
@@ -447,6 +547,32 @@ button:hover {
           <div id="prtdiv"><button type="button" id="printButton">Print</button></div>
         </div>
 
+    </section>
+
+
+    <section id="intro" class="hidden3">
+        <p onclick="toggleDropdown3()">Need Help?</p>
+        <span id="dropdownArea3" class="hidden3"><h6>Ugh! This is the last right?? Anyway,<br><br>
+            This tool will help you estimate the CGPA of the next semester by entering the current semester expected GPA and credits along with the Previous CGPA and Previous Total Credits.<br><br>
+            <b>Inputs:</b><br><br>
+            <b>Previous CGPA:</b> It is the CGPA you scored upto the previous semester (before this semester).<br>
+            <b>Total Credits:</b> It is the total number of credits before the current semester (upto the previous semester). DO NOT inculde the credits of the current semester.<br><br>
+            <b>Expected GPA:</b> The GPA you are expecting or estimating in the current semester.<br><br>
+            <b>Credits(Current Semester):</b> The credits of the current semester (In the semester your are estimating the GPA).<br><br>
+            Click on 'Estimate CGPA' to calculate the result (CGPA).<br><br>
+            <b>Output:</b><br><br>
+            You will get the CGPA upto the current semester.<br>
+            And Total Credits upto the current semester.<br><br>
+            <b>Tip:</b> If you want to estimate the CGPA of the next semester you can repeat this whole process but with inputs as,<br>
+            Estimated or expected GPA and credits of the next semester.<br>
+            Previous CGPA: The CGPA you calculated before.<br>
+            Total Credits: Total credits which has been displayed in the previous result.<br><br>
+            If you wish to calculate the required GPA to achieve a targeted CGPA, you can click <a href="gpaest.html">here</a>.<br><br>
+            Feel free to refer the <a href="">guide</a> for a better understanding.<br><br>
+
+            <a href="index.html">Calculate GPA</a><br><br>
+            <a href="gpaest.html">Estimate GPA</a>
+        </h6></span>
     </section>
 
     <section id="metd2">
@@ -460,15 +586,15 @@ button:hover {
                         <td><input type="number" step="0.01" name="prevcgpa" required></td>
                       </tr>
                       <tr>
-                        <td>Total Credits:</td>
+                        <td>Total Credits(Upto Previous CGPA):</td>
                         <td><input type="number" name="prevcrd" required></td>
                       </tr>
                       <tr>
-                        <td>Estimated GPA:</td>
+                        <td>Expected GPA(Current Semester):</td>
                         <td><input type="number" step="0.01" name="estgpa" required></td>
                       </tr>
                       <tr>
-                        <td>Estimated Credits:</td>
+                        <td>Credits(Current Semester):</td>
                         <td><input type="number" name="estcrd" required></td>
                       </tr>
                       </table></div>
@@ -482,8 +608,8 @@ button:hover {
             <section id="footerid">
                 <div id="cont1">
                   <a href="123"><h6>Quick links -></h6></a>
-                  <a href="1234"><h6>dfwvw</h6></a>
-                  <a href="12345"><h6>dfwvw</h6></a>
+                  <a href="1234"><h6>Guide</h6></a>
+                  <a href="12345"><h6>Math behind it</h6></a>
                 </div>
                 <div id="cont2">
                     <div id="bio">
@@ -508,6 +634,22 @@ button:hover {
         
         
           <script>
+
+function toggleDropdown() {
+  var dropdown = document.getElementById('dropdownArea');
+  dropdown.classList.toggle('open');
+}
+
+function toggleDropdown2() {
+  var dropdown = document.getElementById('dropdownArea2');
+  dropdown.classList.toggle('open');
+}
+
+function toggleDropdown3() {
+  var dropdown = document.getElementById('dropdownArea3');
+  dropdown.classList.toggle('open');
+}
+
             var courseCount = 1;
             var defaultGrade = "8"; // Default grade value
             var defaultCredit = "3"; // Default credit value
@@ -571,10 +713,11 @@ button:hover {
   var results = calculateResult(sumOfProducts, sumOfCredits, additionalInput1Value, additionalInput2Value);
   var gpa = results.gpa;
   var newCGPA = results.newCGPA;
+  var newsumOfCredits = sumOfCredits + additionalInput2Value;
 
   // Display result
   var resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = "GPA: " + gpa.toFixed(2) + "<br>New CGPA: " + newCGPA.toFixed(2);
+  resultDiv.innerHTML = "GPA: " + gpa.toFixed(2) + "<br>CGPA: " + newCGPA.toFixed(2) + "<br>Total Credits:" + newsumOfCredits;
 
 
 });
@@ -681,10 +824,11 @@ document.getElementById("cgpaest1Form").addEventListener("submit", function(even
 
   // Calculate the result
   var newCGPA = ((prevCGPA * prevCredits) + (estGPA * estCredits)) / (prevCredits + estCredits);
+  var totcredits = prevCredits + estCredits;
 
   // Display result
   var resultDiv = document.getElementById("result2");
-  resultDiv.innerHTML = "Estimated CGPA: " + newCGPA.toFixed(2);
+  resultDiv.innerHTML = "Estimated CGPA: " + newCGPA.toFixed(2) + "<br>Total Credits:" + totcredits;
 });
 
 document.getElementById("printButton2").addEventListener("click", function() {

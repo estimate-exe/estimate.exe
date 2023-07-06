@@ -21,6 +21,49 @@ h1 {
   text-align: center;
 }
 
+#dropdownArea {
+  display: none;
+}
+
+#dropdownArea.open {
+  display: block;
+}
+
+#dropdownArea2 {
+  display: none;
+}
+
+#dropdownArea2.open {
+  display: block;
+}
+
+#intro{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    background-color: #ffffff;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#intro h6{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+#intro p{
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+#gpaest{
+    padding-top: 20px;}
+
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -165,6 +208,33 @@ button:hover {
             </ul>
         </div>
     </section>
+    <section id="intro" class="hidden">
+        <p onclick="toggleDropdown()">Click here for page info.</p>
+        <span id="dropdownArea" class="hidden"><h6>Alright, we get it. You said it's the last time, but we know you can't resist our amazing tools. Alright then,<br><br>
+        This tool will help you determine the GPA you need to score in your current semester in order to reach a specific CGPA goal. It takes into account your previous CGPA, the total number of credits upto that semester, the desired CGPA you wish to achieve and the credits in the current semester.<br><br>
+        If you want to calculate only the current semester GPA, you can click <a href="index.html">here</a>.<br><br>
+        If you wish to calculate your CGPA (Cumulative Grade Point Average), you can click <a href="cgpaest.html">here</a>.<br><br>
+        Feel free to use the help button provided if you need any assistance.<br><br>
+        I suggest you go through the <a href="">guide</a> for a better understanding of this tool.</h6></span>
+    </section>
+    
+    <section id="intro" class="hidden2">
+        <p onclick="toggleDropdown2()">Need Help?</p>
+        <span id="dropdownArea2" class="hidden2"><h6>This tool will help you determine the GPA you need to score in your current semester in order to reach a specific CGPA goal. It takes into account your previous CGPA, the total number of credits upto that semester, the desired CGPA you wish to achieve and the credits in the current semester.<br><br>
+            <b>Inputs:</b><br><br>
+            <b>Previous CGPA:</b> It is the CGPA you scored upto the previous semester (before this semester).<br>
+            <b>Total Credits:</b> It is the total number of credits before the current semester (upto the previous semester). DO NOT inculde the credits of the current semester.<br>
+            <b>Target CGPA:</b> CGPA you wish to achieve.<br>
+            <b>Credits(Current Semester):</b> Credits of the semester in which you want to calculate the required GPA (Current semester.)<br><br>
+            Click on 'Estimate CGPA' to calculate the result.<br><br>
+            <b>Output:</b><br><br>
+            You will get the required GPA of the current semester you need to score to achieve the target CGPA.<br><br>
+            <b>Note:</b>Sometimes if your Target CGPA is high then the required GPA will exceed 10. In that case try to reduce the Target CGPA<br><br>
+            Feel free to refer the <a href="">guide</a> for a better understanding.<br><br>
+            <a href="index.html">Calculate GPA</a><br><br>
+            <a href="cgpaest.html">Calculate CGPA</a>
+        </h6></span>
+    </section>
     <section id="gpaest">
             <form id="gpaestForm">
 
@@ -175,7 +245,7 @@ button:hover {
                         <td><input type="number" step="0.01" name="prevcgpa" required></td>
                       </tr>
                       <tr>
-                        <td>Total Credits:</td>
+                        <td>Total Credits(Upto Previous CGPA):</td>
                         <td><input type="number" name="prevcrd" required></td>
                       </tr>
                       <tr>
@@ -183,7 +253,7 @@ button:hover {
                         <td><input type="number" step="0.01" name="trgtcgpa" required></td>
                       </tr>
                       <tr>
-                        <td>Estimated Credits:</td>
+                        <td>Credits(Current Semester):</td>
                         <td><input type="number" name="estcrd" required></td>
                       </tr>
                       </table></div>
@@ -197,8 +267,8 @@ button:hover {
     <section id="footerid">
         <div id="cont1">
           <a href="123"><h6>Quick links -></h6></a>
-          <a href="1234"><h6>dfwvw</h6></a>
-          <a href="12345"><h6>dfwvw</h6></a>
+          <a href="1234"><h6>Guide</h6></a>
+          <a href="12345"><h6>Math behind it</h6></a>
         </div>
         <div id="cont2">
             <div id="bio">
@@ -219,6 +289,17 @@ button:hover {
 </section>
 
     <script>
+
+function toggleDropdown() {
+  var dropdown = document.getElementById('dropdownArea');
+  dropdown.classList.toggle('open');
+}
+
+function toggleDropdown2() {
+  var dropdown = document.getElementById('dropdownArea2');
+  dropdown.classList.toggle('open');
+}
+
         document.getElementById("gpaestForm").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent form submission
 
