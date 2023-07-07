@@ -73,6 +73,7 @@ h1 {
     background-color: #ffffff;
     margin-top: 20px;
     padding: 20px;
+    cursor: pointer;
 }
 
 #intro h6{
@@ -362,18 +363,22 @@ button:hover {
           </style>
 
 <section onclick="toggleDropdown()" id="intro" class="hidden">
-    <p onclick="toggleDropdown()">Page info.</p>
+    <p>Page info <i class="fa-solid fa-caret-down" style="color: #000000;"></i></p>
     <span id="dropdownArea" class="hidden"><h6>You again? Just kidding, great to see you back!<br><br>
     On this page, you'll discover a CGPA calculator that allows you to determine your CGPA by entering your earned grades and corresponding credits of the current semester along with the Previous CGPA and Previous Total Credits. <br><br>
     And further down the page you'll discover another CGPA estimator which will estimate the Overall CGPA by entering the current semester expected GPA and credits along with the Previous CGPA and Previous Total Credits.<br><br>
     If you want to calculate only the current semester GPA, you can click <a href="index.html">here</a>.<br><br>
     If you wish to calculate the required GPA to achieve a targeted CGPA, you can click <a href="gpaest.html">here</a>.<br><br>
     Feel free to use the help button provided if you need any assistance.<br><br>
-    I suggest you go through the <a href="">guide</a> for a better understanding of this tool.</h6></span>
+    I suggest you go through the <a href="Estimate.exe_Guide.pdf">guide</a> for a better understanding of this tool.</h6></span>
+</section>
+
+<section id="text3">
+    <div><h4>CGPA Calculator with Grades & Credits.</h4></div>
 </section>
 
 <section onclick="toggleDropdown2()" id="intro" class="hidden2">
-    <p onclick="toggleDropdown2()">Need Help?</p>
+    <p>Need Help?</p>
     <span id="dropdownArea2" class="hidden2"><h6><b>Inputs:</b><br><br>
         <b>Semester:</b> It is the number of the semester for your reference which is completely optional.<br>
         <b>Credits:</b> These are the credit weights of each course/subject for the current semester.<br>
@@ -391,7 +396,7 @@ button:hover {
         Estimated or expected grades and credits of the next semester.<br>
         Previous CGPA: The CGPA you calculated before.<br>
         Total Credits: Total credits which has been displayed in the previous result.<br><br>
-        Feel free to refer the <a href="">guide</a> for a better understanding.<br><br>
+        Feel free to refer the <a href="Estimate.exe_Guide.pdf">guide</a> for a better understanding.<br><br>
         <a href="index.html">Calculate GPA</a><br><br>
         <a href="gpaest.html">Estimate GPA</a>
     </h6></span>
@@ -554,9 +559,13 @@ button:hover {
 
     </section>
 
+    <section id="text3">
+        <div><h4>CGPA Estimator with GPA.</h4></div>
+    </section>
+
 
     <section onclick="toggleDropdown3()" id="intro" class="hidden3">
-        <p onclick="toggleDropdown3()">Need Help?</p>
+        <p>Need Help?</p>
         <span id="dropdownArea3" class="hidden3"><h6>Ugh! This is the last right?? Anyway,<br><br>
             This tool will help you estimate the CGPA of the next semester by entering the current semester expected GPA and credits along with the Previous CGPA and Previous Total Credits.<br><br>
             <b>Inputs:</b><br><br>
@@ -573,7 +582,7 @@ button:hover {
             Previous CGPA: The CGPA you calculated before.<br>
             Total Credits: Total credits which has been displayed in the previous result.<br><br>
             If you wish to calculate the required GPA to achieve a targeted CGPA, you can click <a href="gpaest.html">here</a>.<br><br>
-            Feel free to refer the <a href="">guide</a> for a better understanding.<br><br>
+            Feel free to refer the <a href="Estimate.exe_Guide.pdf">guide</a> for a better understanding.<br><br>
 
             <a href="index.html">Calculate GPA</a><br><br>
             <a href="gpaest.html">Estimate GPA</a>
@@ -610,12 +619,25 @@ button:hover {
             <div id="prtdiv"><button type="button" id="printButton2">Print</button></div>
             </section>
 
+            <section id="intro">
+                <span>
+                    <p>I'd Love to hear your <a href="mailto:p.yashwant21@ifheindia.org">Feedback</a>.</p>
+                <p>Add this website to your <a href="javascript:window.external.AddFavorite('https://estimate-exe.github.io/estimate.exe/', 'Estimate.exe')">Bookmarks</a>.</p>
+                    </span>
+                
+                    </section>
+
             <section id="footerid">
                 <div id="cont1">
-                  <a href="123"><h6>Quick links -></h6></a>
-                  <a href="1234"><h6>Guide</h6></a>
-                  <a href="12345"><h6>Math behind it</h6></a>
+                  <a href="index.html"><h6>Quick links -></h6></a>
+                  <a href="Estimate.exe_Guide.pdf"><h6>Guide</h6></a>
+                  <a href="Estimate.exe_Mathbehindit.pdf"><h6>Math behind it</h6></a>
                 </div>
+                <div id="cont1">
+                    <a href="index.html"><h6>GPA</h6></a>
+                    <a href="cgpaest.html"><h6>CGPA</h6></a>
+                    <a href="gpaest.html"><h6>GPA*</h6></a>
+                  </div>
                 <div id="cont2">
                     <div id="bio">
                     <div id="myphoto">

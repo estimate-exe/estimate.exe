@@ -278,6 +278,20 @@ border-radius: 50%;
       }
     }
 
-
+    #text3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      background-color: #333333;
+        margin-top: 20px;
+        padding: 20px;
+      }
+      
+      #text3 h4 {
+        text-align: center;
+        font-size: 30px;
+        color: white;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
 
 
