@@ -560,8 +560,8 @@ document.getElementById("addCourse").addEventListener("click", function() {
   var gradeSelect = document.createElement("select");
   gradeSelect.setAttribute("name", "grade" + courseCount);
   gradeSelect.required = true;
-  var gradeOptions = ["", "10", "8", "6", "4", "0"];
-  var gradeLabels = ["Select Grade", "A", "B", "C", "D", "F"];
+  var gradeOptions = ["", "10", "8", "6", "4", "2", "0"];
+  var gradeLabels = ["Select Grade", "A", "B", "C", "D", "E", "F"];
   for (var i = 0; i < gradeOptions.length; i++) {
     var option = document.createElement("option");
     option.value = gradeOptions[i];
