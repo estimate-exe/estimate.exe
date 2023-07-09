@@ -10,6 +10,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P16G6YPXTF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-P16G6YPXTF');
+</script>
 
 </head>
 <body>
@@ -702,8 +711,8 @@ function toggleDropdown3() {
   var gradeSelect = document.createElement("select");
   gradeSelect.setAttribute("name", "grade" + courseCount);
   gradeSelect.required = true;
-  var gradeOptions = ["", "10", "8", "6", "4", "0"];
-  var gradeLabels = ["Select Grade", "A", "B", "C", "D", "F"];
+  var gradeOptions = ["", "10", "8", "6", "4","2", "0"];
+  var gradeLabels = ["Select Grade", "A", "B", "C", "D","E", "F"];
   for (var i = 0; i < gradeOptions.length; i++) {
     var option = document.createElement("option");
     option.value = gradeOptions[i];
