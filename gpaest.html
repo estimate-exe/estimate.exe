@@ -194,6 +194,34 @@ button:hover {
   font-size: 20px;
 }
 
+#result3 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#result4 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#result5 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#result6 {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
 #btndiv3{
     display: flex;
     justify-content: center;
@@ -283,9 +311,14 @@ button:hover {
             <div id="btndiv3"><input type="submit" id="btn3" value="Estimate GPA"></div>
             </form>
             <div id="result2"></div>
-        
+            <div id="result3"></div>
+            <div id="result4"></div>
+            <div id="result5"></div>
+            <div id="result6"></div>
             <div id="prtdiv"><button type="button" id="printButton2">Print</button></div>
+
     </section>
+
 
     <section id="intro">
         <span>
@@ -337,6 +370,8 @@ function toggleDropdown2() {
   dropdown.classList.toggle('open');
 }
 
+var newGPA;
+
         document.getElementById("gpaestForm").addEventListener("submit", function(event) {
   event.preventDefault(); // Prevent form submission
 
@@ -348,16 +383,186 @@ function toggleDropdown2() {
 
   // Calculate the result
   var newGPA = (targetCGPA * (prevCredits + estCredits) - (prevCGPA * prevCredits)) / estCredits;
+  var totalCredits = prevCredits+estCredits;
+
+  // Clear previous results
+
+  var resultDiv2 = document.getElementById("result2");
+  resultDiv2.innerHTML = "";
+
+  var resultDiv3 = document.getElementById("result3");
+  resultDiv3.innerHTML = "";
+
+  var resultDiv4 = document.getElementById("result4");
+  resultDiv4.innerHTML = "";
+
+  var resultDiv5 = document.getElementById("result5");
+  resultDiv5.innerHTML = "";
+
+  var resultDiv6 = document.getElementById("result6");
+  resultDiv6.innerHTML = "";
 
   // Display result
   if(newGPA<=10){
   var resultDiv = document.getElementById("result2");
-  resultDiv.innerHTML = "Required GPA: " + newGPA.toFixed(2);}
-  else{
+  resultDiv.innerHTML = "Required GPA: " + newGPA.toFixed(2) + "<br>Total Credits: " + totalCredits;
+
+  const ngpa = newGPA*7;
+
+  function getNearestEvenInteger(number) {
+  // Round the number up to the nearest integer
+  var roundedNumber = Math.ceil(number);
+
+  // Check if the rounded number is already even
+  if (roundedNumber % 2 === 0) {
+    return roundedNumber;
+  }
+
+  // Calculate the next even integer
+  var nextEvenInteger = roundedNumber + 1;
+
+  // Check if the input number is already an even integer
+  if (number % 2 === 0) {
+    return number;
+  }
+
+  // Return the next even integer
+  return nextEvenInteger;
+}
+
+
+
+input = getNearestEvenInteger(ngpa);
+
+function generateCombinations(input) {
+  // Check if the input is even and within the range
+  if (input % 2 !== 0 || input < 14 || input > 70) {
+    return "Invalid input! Please enter an even number within the range of 14 to 70.";
+  }
+
+  const numbers = [10, 8, 6, 4, 2];
+  const combinations = [];
+
+  // Recursive function to generate combinations
+  function generate(currentCombination, remainingSum, startIndex, maxCombinations) {
+    // Base case: combination length exceeds 7 or remaining sum becomes negative
+    if (currentCombination.length > 7 || remainingSum < 0 || combinations.length >= maxCombinations) {
+      return;
+    }
+
+    // Base case: combination length is 7 and remaining sum is zero
+    if (currentCombination.length === 7 && remainingSum === 0) {
+      combinations.push(currentCombination);
+      return;
+    }
+
+    // Generate combinations recursively
+    for (let i = startIndex; i < numbers.length; i++) {
+      const number = numbers[i];
+      generate(
+        currentCombination.concat(number),
+        remainingSum - number,
+        i,
+        maxCombinations
+      );
+      if (combinations.length >= maxCombinations) {
+      break;
+    }
+    }
+  }
+
+  // Start generating combinations
+  generate([], input, 0);
+
+
+  return combinations;
+
+}
+
+const combs= generateCombinations(input);
+
+function getLastCombination(input) {
+  const result = generateCombinations(input);
+  const lastCombination = result[result.length - 1];
+  return lastCombination;
+}
+
+const lastcomb = getLastCombination(input);
+
+function convertValuesToCharacters(result) {
+  const characterMap = {
+    10: 'A',
+    8: 'B',
+    6: 'C',
+    4: 'D',
+    2: 'E'
+  };
+
+  function convertRecursive(arr) {
+    return arr.map(value => {
+      if (Array.isArray(value)) {
+        return convertRecursive(value);
+      } else {
+        return characterMap[value] || value;
+      }
+    });
+  }
+
+  return convertRecursive(result);
+}
+
+const newcombs = convertValuesToCharacters(combs);
+const newlastcomb = convertValuesToCharacters(lastcomb);
+
+function getRepeatedValuesCount(arr) {
+  const frequencyMap = {};
+  
+  // Count the frequency of each value in the array
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+    if (frequencyMap[value]) {
+      frequencyMap[value]++;
+    } else {
+      frequencyMap[value] = 1;
+    }
+  }
+
+  return frequencyMap;
+}
+
+const resultrep = getRepeatedValuesCount(newlastcomb);
+
+const resultDiv3 = document.getElementById("result3");
+resultDiv3.innerHTML = "*Assuming that the semester contains 7 Courses with 3 Credits each:";
+
+const resultDiv1 = document.getElementById("result4");
+resultDiv1.innerHTML = `
+  In order to achieve the required GPA shown above the minimum number of each grades you have to score:<br><br>
+  ${resultrep['A'] || 0}- A grades, 
+  ${resultrep['B'] || 0}- B grades, 
+  ${resultrep['C'] || 0}- C grades, 
+  ${resultrep['D'] || 0}- D grades, 
+  ${resultrep['E'] || 0}- E grades.
+`;
+
+const resultDiv4 = document.getElementById("result5");
+resultDiv4.innerHTML = "Other Combinations:";
+
+
+var resultDiv2 = document.getElementById("result6");
+    for (let i = 0; i < combs.length; i++) {
+  const combination = newcombs[i];
+  resultDiv2.innerHTML += combination.join(', ') + '<br>';
+}}
+
+else{
     var resultDiv = document.getElementById("result2");
   resultDiv.innerHTML = "Your required GPA is exceeding the maximum limit of 10. Try reducing the Target CGPA";
   }
+
+  
 });
+
 
 document.getElementById("printButton2").addEventListener("click", function() {
   // Hide the print button
